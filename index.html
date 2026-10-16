@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VetRx | Veterinary Prescription</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="toolbar no-print">
+        <div>
+          <p class="eyebrow">PERSONAL VETERINARY WORKSPACE</p>
+          <h1>Prescription writer</h1>
+          <p class="toolbar-copy">Fast entry, reusable medicine defaults, and a clean print-ready prescription.</p>
+        </div>
+        <div class="toolbar-actions">
+          <button class="button button-secondary" id="clearPrescription" type="button">Clear</button>
+          <button class="button button-primary" id="printPrescription" type="button">Print / Save PDF</button>
+        </div>
+      </section>
+
+      <section class="paper" id="prescription">
+        <header class="clinic-header">
+          <div class="doctor-block doctor-block-left">
+            <strong>ডা. মো. আরিফুল ইসলাম</strong>
+            <span>DVM, MS in Microbiology (BAU)</span>
+            <span>BCS (Livestock)</span>
+            <span>Veterinary Surgeon</span>
+            <span>বিসিএস (প্রাণিসম্পদ)</span>
+            <span>মোবাইল: ০১৩০৩-০৯৩৩৮৪</span>
+            <span>ইমেইল: arif.bau1@gmail.com</span>
+          </div>
+          <div class="clinic-mark">
+            <div class="mark-row">
+              <span class="mark-circle">🐄</span>
+              <span class="mark-circle">🐐</span>
+            </div>
+            <strong>উপজেলা প্রাণিসম্পদ দপ্তর ও ভেটেরিনারি হাসপাতাল</strong>
+            <span>কাহালু, বগুড়া।</span>
+          </div>
+          <div class="doctor-block doctor-block-right">
+            <strong>Dr. Md. Ariful Islam</strong>
+            <span>DVM, MS in Microbiology (BAU)</span>
+            <span>BCS (Livestock)</span>
+            <span>Veterinary Surgeon</span>
+            <span>BVC Reg. No.: 5798</span>
+            <span>Mobile: 01303-093384</span>
+            <span>E-mail: arif.bau1@gmail.com</span>
+          </div>
+        </header>
+
+        <section class="patient-bar">
+          <label>
+            <span>মালিকের নাম ও ঠিকানা / Owner name & address</span>
+            <input id="owner" type="text" placeholder="Enter owner name and address" />
+          </label>
+          <label class="date-field">
+            <span>তারিখ / Date</span>
+            <input id="date" type="date" />
+          </label>
+        </section>
+
+        <div class="prescription-grid">
+          <aside class="clinical-sidebar">
+            <h2>রোগীর বিবরণ</h2>
+            <div class="details-list">
+              <label><span>প্রজাতি / Species</span><select id="species">
+                <option value="">Select species</option>
+                <option value="Cow">Cow</option>
+                <option value="Goat">Goat</option>
+                <option value="Sheep">Sheep</option>
+                <option value="Buffalo">Buffalo</option>
+                <option value="Cat">Cat</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Duck">Duck</option>
+              </select></label>
+              <label><span>সংখ্যা / No.</span><input id="animalCount" type="text" /></label>
+              <label><span>বয়স / Age</span><input id="age" type="text" /></label>
+              <label><span>ওজন / Weight</span><input id="weight" type="text" /></label>
+              <label><span>গর্ভাবস্থা / Pregnancy</span><input id="pregnancy" type="text" /></label>
+              <label><span>লক্ষণ / Signs</span><textarea id="signs" rows="2"></textarea></label>
+              <label><span>তাপমাত্রা / Temp.</span><input id="temperature" type="text" /></label>
+            </div>
+
+            <h2 class="sidebar-heading">পরীক্ষা ও রিপোর্ট</h2>
+            <div class="report-grid">
+              <label>Blood Test Report<input type="text" /></label>
+              <label>Anaplasmosis<input type="text" /></label>
+              <label>Theileriosis<input type="text" /></label>
+              <label>Babesiosis<input type="text" /></label>
+              <label>Glucose<input type="text" /></label>
+              <label>Rumen pH<input type="text" /></label>
+            </div>
+
+            <label class="notes-field">
+              <span>সতর্কতা ও পরামর্শ / Advice</span>
+              <textarea id="advice" rows="5" placeholder="Write follow-up advice..."></textarea>
+            </label>
+          </aside>
+
+          <section class="medicine-section">
+            <div class="medicine-heading">
+              <div>
+                <p class="section-kicker">Rx</p>
+                <h2>Medicines & directions</h2>
+              </div>
+              <button class="button button-small no-print" id="addMedicine" type="button">+ Add medicine</button>
+            </div>
+            <div class="medicine-table-wrap">
+              <table class="medicine-table">
+                <thead>
+                  <tr>
+                    <th class="serial">S.</th>
+                    <th>Medicine / Sig.</th>
+                    <th>Directions</th>
+                    <th class="no-print action-column">Edit</th>
+                  </tr>
+                </thead>
+                <tbody id="medicineRows"></tbody>
+              </table>
+            </div>
+            <p class="empty-state" id="emptyState">Add a medicine or start typing in the first row to see database suggestions.</p>
+          </section>
+        </div>
+
+        <footer class="prescription-footer">
+          <p>⚠ চিকিৎসকের পরামর্শ ব্যতীত অ্যান্টিবায়োটিক ব্যবহার করবেন না।</p>
+          <p>⚠ Preserve medicines as directed and complete the prescribed course.</p>
+        </footer>
+      </section>
+
+      <section class="database-panel no-print">
+        <div class="database-heading">
+          <div>
+            <p class="eyebrow">YOUR REUSABLE LIBRARY</p>
+            <h2>Medicine database</h2>
+          </div>
+          <button class="button button-secondary button-small" id="toggleDatabase" type="button">Manage medicines</button>
+        </div>
+        <div class="database-content" id="databaseContent" hidden>
+          <p class="database-help">Add your common medicines once. When you type the first two letters in a prescription row, matching defaults appear automatically.</p>
+          <div class="database-form">
+            <input id="dbName" type="text" placeholder="Medicine name" />
+            <input id="dbDosage" type="text" placeholder="Default dosage e.g. 10 mg/kg" />
+            <input id="dbRoute" type="text" placeholder="Route e.g. Oral" />
+            <input id="dbFrequency" type="text" placeholder="Frequency e.g. BID" />
+            <input id="dbDuration" type="text" placeholder="Duration e.g. 5 days" />
+            <button class="button button-primary button-small" id="saveMedicine" type="button">Add to database</button>
+          </div>
+          <div class="database-list" id="databaseList"></div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

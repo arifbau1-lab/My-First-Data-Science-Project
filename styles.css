@@ -1,0 +1,220 @@
+:root {
+  --ink: #1b2938;
+  --muted: #667586;
+  --line: #d9e0e6;
+  --paper: #fffefb;
+  --canvas: #edf2f4;
+  --green: #1d6a55;
+  --green-dark: #124b3c;
+  --mint: #e8f2ee;
+  --gold: #d3a536;
+  --shadow: 0 18px 48px rgba(31, 52, 66, 0.12);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at top left, #f8fbfb, var(--canvas) 55%); }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+.app-shell { width: min(1440px, 100%); margin: 0 auto; padding: 34px 24px 48px; }
+.toolbar, .database-panel { background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(210, 220, 224, 0.9); border-radius: 20px; padding: 22px 26px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 20px; }
+.eyebrow, .section-kicker { margin: 0 0 5px; color: var(--green); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 5px; font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -0.04em; }
+h2 { margin-bottom: 14px; font-size: 1.05rem; }
+.toolbar-copy { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.toolbar-actions, .database-heading { display: flex; align-items: center; gap: 10px; }
+.button { border: 0; border-radius: 10px; padding: 11px 16px; font-weight: 700; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+.button:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(18, 75, 60, 0.16); }
+.button-primary { color: white; background: var(--green); }
+.button-primary:hover { background: var(--green-dark); }
+.button-secondary { color: var(--green-dark); background: var(--mint); }
+.button-small { padding: 8px 12px; font-size: 0.82rem; }
+.paper { width: min(100%, 980px); margin: 0 auto; overflow: hidden; background: var(--paper); border: 1px solid #c8cbc5; box-shadow: var(--shadow); }
+.clinic-header { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 14px; align-items: center; padding: 16px 24px 13px; border-bottom: 3px solid var(--ink); }
+.doctor-block { display: flex; flex-direction: column; gap: 1px; font-size: 0.68rem; line-height: 1.35; }
+.doctor-block strong { font-size: 0.92rem; }
+.doctor-block-right { text-align: right; }
+.clinic-mark { display: flex; flex-direction: column; align-items: center; gap: 1px; text-align: center; font-size: 0.68rem; line-height: 1.3; }
+.mark-row { display: flex; gap: 7px; margin-bottom: 2px; }
+.mark-circle { display: grid; place-items: center; width: 43px; height: 43px; border: 2px solid var(--green); border-radius: 50%; background: #f6eaa7; font-size: 1.25rem; }
+.patient-bar { display: grid; grid-template-columns: 1fr 190px; gap: 28px; padding: 8px 24px; border-bottom: 1px solid var(--ink); }
+label { display: block; }
+.patient-bar label > span, .details-list label > span, .notes-field > span { display: block; margin-bottom: 3px; font-size: 0.66rem; font-weight: 700; }
+input, textarea { width: 100%; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 8px 9px; outline: none; }
+select { width: 100%; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 8px 9px; outline: none; }
+input:focus, textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(29, 106, 85, 0.1); }
+.patient-bar input { padding: 5px 0; border: 0; border-radius: 0; border-bottom: 1px dashed #84909a; background: transparent; }
+.prescription-grid { display: grid; grid-template-columns: 245px 1fr; }
+.clinical-sidebar { padding: 19px 16px; border-right: 1px solid var(--ink); }
+.details-list { display: grid; gap: 7px; }
+.details-list input, .details-list textarea { font-size: 0.72rem; padding: 5px 6px; }
+.sidebar-heading { margin-top: 21px; }
+.report-grid { display: grid; gap: 1px; border: 1px solid var(--ink); font-size: 0.65rem; }
+.report-grid label { display: grid; grid-template-columns: 1fr 72px; align-items: center; padding-left: 7px; border-bottom: 1px solid var(--ink); }
+.report-grid label:last-child { border-bottom: 0; }
+.report-grid input { min-height: 25px; border: 0; border-left: 1px solid var(--ink); border-radius: 0; }
+.notes-field { margin-top: 21px; }
+.notes-field textarea { min-height: 88px; }
+.medicine-section { min-width: 0; padding: 19px 14px 0; }
+.medicine-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: 0 0 8px; }
+.medicine-heading h2 { margin: 0; font-size: 1.08rem; }
+.medicine-table-wrap { overflow-x: auto; border: 1px solid var(--ink); }
+.medicine-table { width: 100%; min-width: 680px; border-collapse: collapse; table-layout: fixed; }
+.medicine-table th { padding: 7px 8px; background: #f4f7f5; text-align: left; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.medicine-table th, .medicine-table td { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.medicine-table th:last-child, .medicine-table td:last-child { border-right: 0; }
+.medicine-table tr:last-child td { border-bottom: 0; }
+.medicine-table tr.empty-row { display: none; }
+.medicine-table th.serial { width: 32px; text-align: center; }
+.medicine-table th:nth-child(2) { width: 45%; }
+.medicine-table th:nth-child(3) { width: 45%; }
+.medicine-table th.action-column { width: 38px; }
+.medicine-table td { vertical-align: top; height: 78px; padding: 5px 7px; }
+.medicine-table td.serial { text-align: center; font-weight: 800; }
+.medicine-cell { position: relative; }
+.medicine-cell input, .medicine-cell textarea { border-color: transparent; background: transparent; padding: 2px 3px; font-size: 0.72rem; }
+.medicine-cell textarea { resize: vertical; min-height: 22px; }
+.medicine-cell input:hover, .medicine-cell textarea:hover { background: #fbfcfc; border-color: var(--line); }
+.medicine-cell .medicine-name { width: 100%; font-weight: 800; font-size: 0.78rem; }
+.sig-line { display: grid; grid-template-columns: 27px 1fr; align-items: center; gap: 2px; font-size: 0.72rem; }
+.sig-line textarea { width: 100%; }
+.route-picker { display: flex; flex-wrap: wrap; gap: 0 5px; min-height: 24px; align-items: center; }
+.route-option { padding: 0; border: 0; color: var(--ink); background: transparent; font-size: 0.69rem; cursor: pointer; }
+.route-option:hover, .route-option.is-selected { color: var(--green-dark); font-weight: 800; }
+.route-option.is-muted { color: #aeb6bb; opacity: 0.42; }
+.poultry-picker { display: none; gap: 4px; align-items: center; }
+.poultry-row .route-picker { display: none; }
+.poultry-row .poultry-picker { display: flex; }
+.poultry-option { display: inline-flex; align-items: center; gap: 2px; padding: 0; border: 0; color: var(--ink); background: transparent; font-size: 0.68rem; }
+.poultry-option.is-selected { color: var(--green-dark); font-weight: 800; }
+.poultry-option.is-muted { color: #aeb6bb; opacity: 0.42; }
+.poultry-quantity { width: 28px; padding: 0 2px; border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; background: transparent; font-size: 0.68rem; text-align: center; }
+.route-selection { display: none; }
+.route-selection input { width: 100%; }
+.duration-picker { display: flex; align-items: center; gap: 4px; margin-top: 2px; color: var(--ink); font-size: 0.68rem; white-space: nowrap; }
+.frequency-mode, .interval-mode { display: inline-flex; align-items: center; gap: 3px; transition: opacity 0.2s, color 0.2s; }
+.frequency-mode.is-muted, .interval-mode.is-muted { color: #aeb6bb; opacity: 0.38; }
+.duration-picker input { width: 38px; height: 20px; padding: 0 1px; color: var(--ink); border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; background: transparent; text-align: center; font-size: 0.68rem; }
+.duration-picker input:focus { outline: 2px solid rgba(29, 106, 85, 0.25); }
+.instruction-toggle { margin-top: 2px; padding: 0; border: 0; color: var(--green); background: transparent; font-size: 0.62rem; font-weight: 700; }
+.instruction-toggle:hover { color: var(--green-dark); text-decoration: underline; }
+.medicine-instructions { width: 100%; margin-top: 1px; }
+.medicine-instructions.note-hidden { display: none; }
+.suggestions { position: absolute; z-index: 5; top: 38px; left: 4px; right: 4px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: white; box-shadow: 0 10px 25px rgba(20, 45, 59, 0.16); }
+.suggestion { display: block; width: 100%; padding: 9px 10px; border: 0; border-bottom: 1px solid #edf0f1; background: white; text-align: left; }
+.suggestion:hover { background: var(--mint); }
+.suggestion strong { display: block; font-size: 0.82rem; }
+.suggestion span { color: var(--muted); font-size: 0.7rem; }
+.remove-row { border: 0; color: #b44343; background: transparent; font-size: 1.1rem; }
+.empty-state { display: none; padding: 16px; color: var(--muted); font-size: 0.82rem; text-align: center; }
+.empty-state.visible { display: block; }
+.prescription-footer { display: flex; justify-content: space-between; gap: 20px; padding: 8px 24px; color: #f8fff3; background: var(--green); font-size: 0.64rem; }
+.prescription-footer p { margin: 0; }
+.database-panel { margin-top: 20px; }
+.database-heading h2 { margin: 0; }
+.database-content { padding-top: 18px; }
+.database-help { color: var(--muted); font-size: 0.85rem; }
+.database-form { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 8px; }
+.database-form input { font-size: 0.8rem; }
+.database-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; margin-top: 16px; }
+.database-item { display: flex; justify-content: space-between; gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fbfdfc; }
+.database-item strong { display: block; font-size: 0.82rem; }
+.database-item small { color: var(--muted); font-size: 0.7rem; }
+.delete-db { border: 0; color: #b44343; background: transparent; }
+
+@media (max-width: 900px) {
+  .paper { width: 790px; max-width: none; }
+  .clinic-header { grid-template-columns: 1fr 1fr; }
+  .clinic-mark { grid-column: 1 / -1; grid-row: 1; }
+  .doctor-block-left { grid-column: 1; grid-row: 2; }
+  .doctor-block-right { grid-column: 2; grid-row: 2; }
+  .prescription-grid { grid-template-columns: 245px 1fr; }
+  .database-form { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .app-shell { padding: 14px 8px 30px; }
+  .toolbar { align-items: flex-start; flex-direction: column; padding: 18px; }
+  .toolbar-actions { width: 100%; }
+  .toolbar-actions .button { flex: 1; }
+  .clinic-header { padding: 16px 13px; }
+  .doctor-block { font-size: 0.62rem; }
+  .doctor-block strong { font-size: 0.78rem; }
+  .patient-bar { grid-template-columns: 1fr 190px; gap: 18px; padding: 10px 13px; }
+  .clinical-sidebar { padding: 18px 13px; }
+  .medicine-section { padding: 18px 8px 0; }
+  .prescription-footer { flex-direction: column; gap: 4px; padding: 10px 13px; }
+  .database-panel { padding: 18px; }
+  .database-heading { align-items: flex-start; flex-direction: column; }
+  .database-form { grid-template-columns: 1fr; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 4mm; }
+  :root { background: white; }
+  body { background: white; }
+  .app-shell { width: 100%; padding: 0; }
+  .no-print, .toolbar, .database-panel, .action-column, .remove-row, .suggestions { display: none !important; }
+  .paper { width: 100%; height: 283mm; overflow: hidden; border: 0; box-shadow: none; }
+  .clinic-header { gap: 8px; padding: 7px 12px 6px; }
+  .doctor-block { gap: 0; font-size: 6.5pt; line-height: 1.15; }
+  .doctor-block strong { font-size: 8.5pt; }
+  .clinic-mark { gap: 0; font-size: 6.5pt; line-height: 1.1; }
+  .mark-row { gap: 4px; margin-bottom: 1px; }
+  .mark-circle { width: 27px; height: 27px; font-size: 0.8rem; }
+  .patient-bar { gap: 14px; padding: 4px 12px; }
+  .patient-bar label > span, .details-list label > span, .notes-field > span { margin-bottom: 1px; font-size: 6.5pt; }
+  .patient-bar input { padding: 1px 0; font-size: 7pt; }
+  .prescription-grid { grid-template-columns: 185px 1fr; }
+  .clinical-sidebar { padding: 8px 8px; }
+  .clinical-sidebar h2 { margin-bottom: 5px; font-size: 8.5pt; }
+  .details-list { gap: 3px; }
+  .details-list input, .details-list textarea { padding: 2px 3px; font-size: 6.5pt; }
+  .sidebar-heading { margin-top: 8px; }
+  .report-grid { font-size: 6pt; }
+  .report-grid label { grid-template-columns: 1fr 42px; }
+  .report-grid input { min-height: 14px; }
+  .notes-field { margin-top: 8px; }
+  .notes-field textarea { min-height: 45px; }
+  .medicine-section { padding: 8px 6px 0; }
+  .medicine-heading { margin-bottom: 3px; }
+  .medicine-heading h2 { display: none; }
+  .section-kicker { margin-bottom: 0; }
+  input, textarea { border-color: transparent !important; box-shadow: none !important; padding-left: 0; padding-right: 0; }
+  .medicine-table { min-width: 0; }
+  .medicine-table th { padding: 3px 4px; font-size: 5.8pt; }
+  .medicine-table th.serial { width: 25px; }
+  .medicine-table th:nth-child(2) { width: 48%; }
+  .medicine-table th:nth-child(3) { width: 48%; }
+  .medicine-table td { height: 57px; min-height: 57px; padding: 2px 4px; }
+  .medicine-table td.serial { font-size: 8pt; }
+  .medicine-cell input, .medicine-cell textarea { padding: 0 2px; font-size: 6.5pt; line-height: 1.05; }
+  .medicine-cell .medicine-name { font-size: 7pt; }
+  .sig-line { grid-template-columns: 20px 1fr; align-items: center; gap: 1px; height: 12px; font-size: 6.5pt; line-height: 12px; }
+  .sig-line textarea { height: 12px; min-height: 12px; margin: 0; padding: 0 2px; resize: none; overflow: hidden; line-height: 12px; vertical-align: middle; }
+  .route-picker { gap: 0 3px; min-height: 17px; }
+  .route-option { font-size: 5.6pt; }
+  .duration-picker { gap: 2px; margin-top: 0; font-size: 5.7pt; }
+  .frequency-mode, .interval-mode { gap: 2px; }
+  .duration-picker input {
+    width: 25px;
+    height: 15px;
+    padding: 0;
+    color: #1b2938;
+    border: 0;
+    outline: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    font-size: 5.7pt;
+    text-align: center;
+  }
+  .poultry-option { font-size: 5.6pt; }
+  .poultry-quantity { width: 22px; font-size: 5.6pt; }
+  .medicine-table tr.empty-row { display: none !important; }
+  .medicine-instructions { margin-top: 0; }
+  .prescription-footer { padding: 4px 12px; font-size: 5.8pt; }
+}
