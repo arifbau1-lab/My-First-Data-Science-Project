@@ -1,6 +1,6 @@
 # VetRx prescription writer
 
-A lightweight, browser-based veterinary prescription writer designed around Dr. Md. Ariful Islam's prescription pad.
+A lightweight, browser-based veterinary prescription writer designed around a customizable veterinary prescription pad.
 
 ## Features
 
